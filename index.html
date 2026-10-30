@@ -6,14 +6,30 @@
     <meta name="theme-color" content="#f2f5f1">
     <title>مرحباً</title>
     <style>
+        :root {
+            --bg: #f2f5f1;
+            --panel: #ffffff;
+            --panel-soft: #f7faf7;
+            --ink: #183b3b;
+            --muted: #345858;
+            --line: #dce7e1;
+            --gold: #efb172;
+            --gold-deep: #d78d47;
+            --green: #7fd04c;
+        }
+
         * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
-            padding: 0 24px 48px;
             min-height: 100vh;
-            color: #183b3b;
-            background: #f2f5f1;
+            padding: 0 24px 60px;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top, rgba(255,255,255,0.85), rgba(255,255,255,0) 28%),
+                var(--bg);
             font-family: Tahoma, Arial, sans-serif;
         }
 
@@ -22,8 +38,8 @@
             width: 100vw;
             min-height: 58px;
             margin: 0 calc(50% - 50vw);
-            color: #183b3b;
-            background: transparent;
+            background: rgba(255,255,255,0.45);
+            border-bottom: 1px solid rgba(24,59,59,0.08);
         }
 
         .ticker-track {
@@ -51,7 +67,7 @@
 
         .ticker-group span::after {
             margin-inline-start: 8px;
-            color: #7fd04c;
+            color: var(--green);
             content: "✦";
         }
 
@@ -67,25 +83,44 @@
         }
 
         main {
-            width: min(100%, 1000px);
+            width: min(100%, 1080px);
             margin: 0 auto;
         }
 
         header {
-            margin-bottom: 38px;
+            padding: 42px 0 18px;
             text-align: center;
+        }
+
+        .eyebrow {
+            margin: 0 0 16px;
+            color: var(--gold-deep);
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
         }
 
         h1 {
             margin: 0;
-            font-size: clamp(58px, 10vw, 92px);
-            line-height: 1.2;
+            font-size: clamp(52px, 9vw, 92px);
+            line-height: 1.08;
+            letter-spacing: -0.04em;
+        }
+
+        .subtitle {
+            margin: 18px auto 0;
+            max-width: 620px;
+            color: var(--muted);
+            font-size: clamp(17px, 2.2vw, 23px);
+            line-height: 1.9;
         }
 
         .gallery {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 22px;
+            gap: 26px;
+            margin-top: 26px;
         }
 
         figure {
@@ -93,6 +128,17 @@
             flex-direction: column;
             min-width: 0;
             margin: 0;
+            overflow: hidden;
+            border: 1px solid rgba(24,59,59,0.08);
+            border-radius: 18px;
+            background: var(--panel);
+            box-shadow: 0 10px 24px rgba(24, 59, 59, 0.07);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        figure:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 28px rgba(24, 59, 59, 0.12);
         }
 
         figure img {
@@ -102,18 +148,15 @@
             object-fit: cover;
             object-position: center center;
             background: #d9e2dc;
-            border-radius: 10px 10px 0 0;
         }
 
         figcaption {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-top: 0;
-            padding: 14px 18px 18px;
-            border-radius: 0 0 8px 8px;
+            gap: 12px;
+            padding: 18px 18px 20px;
             color: #fff;
-            background: #183b3b;
+            background: linear-gradient(180deg, #183b3b 0%, #234a4a 100%);
             font-size: 20px;
             font-weight: 700;
         }
@@ -122,6 +165,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            min-height: 30px;
             line-height: 1.5;
         }
 
@@ -135,27 +179,28 @@
             align-items: center;
             justify-content: center;
             width: fit-content;
-            gap: 5px;
-            padding: 5px 10px;
-            border: 1px solid #efb172;
+            gap: 6px;
+            padding: 7px 12px;
+            border: 1px solid rgba(239,177,114,0.9);
             border-radius: 999px;
             color: #fff;
             font-size: 13px;
-            font-weight: 400;
+            font-weight: 700;
             text-decoration: none;
+            transition: all 0.2s ease;
         }
 
         .wisdom-link:hover,
         .wisdom-link:focus-visible {
-            color: #183b3b;
-            background: #efb172;
+            color: var(--ink);
+            background: var(--gold);
         }
 
         .wisdom {
             display: block;
             color: #d7e5df;
             font-family: "Noto Naskh Arabic", Amiri, "Traditional Arabic", serif;
-            font-size: 22px;
+            font-size: clamp(20px, 2vw, 24px);
             font-weight: 600;
             line-height: 1.9;
             text-align: center;
@@ -163,7 +208,7 @@
 
         .wisdom::before {
             margin-inline-end: 6px;
-            color: #efb172;
+            color: var(--gold);
             content: "❝";
             font-family: Georgia, serif;
             font-size: 20px;
@@ -171,12 +216,13 @@
         }
 
         @media (max-width: 640px) {
-            body { padding: 0 18px 36px; }
+            body { padding: 0 18px 40px; }
             .ticker { min-height: 52px; }
             .ticker-group { font-size: 18px; }
             .ticker-group span::after { margin-inline-start: 4px; }
-            header { margin-bottom: 28px; }
             .gallery { grid-template-columns: 1fr; gap: 24px; }
+            header { padding-top: 28px; }
+            .subtitle { margin-top: 12px; }
         }
     </style>
 </head>
@@ -195,13 +241,17 @@
 
     <main>
         <header>
+            <p class="eyebrow">Gallery</p>
             <h1>مرحباً</h1>
+            <p class="subtitle">معرضٌ لطبيعة هادئة، وأفكارٌ تعيد التوازن إلى النفس، وتذكّرنا بأن كل لحظة تحمل في طياتها نورًا جديدًا.</p>
         </header>
+
         <section class="gallery" id="gallery" aria-label="معرض صور الطبيعة"></section>
     </main>
 
     <script>
-        const makeScene = ({ skyTop, skyBottom, hill, accent, label }) => {
+        const makeScene = ({ skyTop, skyBottom, hill, accent, label, sun = false }) => {
+            const sunMarkup = sun ? '<circle cx="930" cy="150" r="92" fill="rgba(255,255,255,0.22)"/>' : '';
             const svg = `
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
                     <defs>
@@ -211,37 +261,37 @@
                         </linearGradient>
                     </defs>
                     <rect width="1200" height="900" fill="url(#sky)"/>
-                    <circle cx="930" cy="180" r="100" fill="rgba(255,255,255,0.25)"/>
-                    <path d="M0,620 C180,520 280,520 420,590 S720,740 1200,610 L1200,900 L0,900 Z" fill="${hill}" opacity="0.9"/>
+                    ${sunMarkup}
+                    <path d="M0,620 C180,520 280,520 420,590 S720,740 1200,610 L1200,900 L0,900 Z" fill="${hill}" opacity="0.92"/>
                     <path d="M0,700 C200,630 380,640 510,700 S820,800 1200,680 L1200,900 L0,900 Z" fill="${accent}" opacity="0.72"/>
-                    <path d="M0,760 L1200,760 L1200,900 L0,900 Z" fill="#1d3c3f" opacity="0.30"/>
-                    <text x="600" y="540" text-anchor="middle" font-family="Tahoma, Arial, sans-serif" font-size="60" fill="white" font-weight="700" opacity="0.9">${label}</text>
+                    <path d="M0,760 L1200,760 L1200,900 L0,900 Z" fill="#1d3c3f" opacity="0.28"/>
+                    <text x="600" y="520" text-anchor="middle" font-family="Tahoma, Arial, sans-serif" font-size="54" fill="white" font-weight="700" opacity="0.92">${label}</text>
                 </svg>
             `;
             return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
         };
 
         const galleryItems = [
-            { title: 'غروب بين الجبال', icon: '🌄', caption: 'غروب الشمس بين الجبال فوق مرج أخضر', wisdom: 'بعد كل غروب، يولد فجر جديد.', image: makeScene({ skyTop: '#f4b183', skyBottom: '#f7dca0', hill: '#4a7a64', accent: '#7aa66d', label: 'غروب' }) },
-            { title: 'غروب على البحيرة', icon: '🌅', caption: 'غروب شاحب فوق مياه هادئة', wisdom: 'في الهدوء نرى ما تخفيه الضوضاء.', image: makeScene({ skyTop: '#99d0da', skyBottom: '#f3d0a8', hill: '#4d7282', accent: '#7dc3bf', label: 'بحيرة' }) },
-            { title: 'مرج أخضر في المساء', icon: '🌾', caption: 'مرج أخضر وضباب خفيف عند الغروب', wisdom: 'الجمال يزهر حيث يجد من يرعاه.', image: makeScene({ skyTop: '#ebad6d', skyBottom: '#fbe3b2', hill: '#4e8b66', accent: '#9ecb71', label: 'مرج' }) },
-            { title: 'ألوان السماء', icon: '🌤️', caption: 'سماء برتقالية فوق الأشجار', wisdom: 'لكل نهاية لونٌ يليق بها.', image: makeScene({ skyTop: '#e5896f', skyBottom: '#f9d4a8', hill: '#547d83', accent: '#ebaa79', label: 'سماء' }) },
-            { title: 'غابة خضراء', icon: '🌲', caption: 'أشعة الشمس تتسلل بين أغصان الغابة', wisdom: 'القوة تنمو بصبر، مثل الأشجار.', image: makeScene({ skyTop: '#9ed4d4', skyBottom: '#dff3d4', hill: '#285f54', accent: '#82bc7f', label: 'غابة' }) },
-            { title: 'قمم جبلية', icon: '🏔️', caption: 'قمم شاهقة تحت سحب بيضاء', wisdom: 'القمم العالية تبدأ بخطوة ثابتة.', image: makeScene({ skyTop: '#d9ebf5', skyBottom: '#f4efe4', hill: '#566d7a', accent: '#9baea2', label: 'قمم' }) },
-            { title: 'أمواج المحيط', icon: '🌊', caption: 'أمواج زرقاء تتدحرج نحو الشاطئ', wisdom: 'المرونة قوة حين تعصف الأمواج.', image: makeScene({ skyTop: '#8ec6e4', skyBottom: '#dff4ff', hill: '#2f6d94', accent: '#7bb4d8', label: 'محيط' }) },
-            { title: 'شاطئ هادئ', icon: '🏖️', caption: 'شاطئ رملي مع ماء هادئ في ضوء المساء', wisdom: 'امنح نفسك وقتًا لتستعيد هدوءك.', image: makeScene({ skyTop: '#f4b07d', skyBottom: '#f7dfb5', hill: '#d5b08b', accent: '#7bb6c6', label: 'شاطئ' }) },
-            { title: 'شلال بين الصخور', icon: '💧', caption: 'ماء ينساب بين الصخور والأشجار', wisdom: 'الاستمرار يصنع طريقًا حتى في الصخر.', image: makeScene({ skyTop: '#79c7d2', skyBottom: '#d7f0f3', hill: '#3a5c50', accent: '#7cb7a9', label: 'شلال' }) },
-            { title: 'صخور الصحراء', icon: '🏜️', caption: 'تكوينات صخرية واسعة في صحراء مفتوحة', wisdom: 'في أبسط الأماكن يتجلى أعمق الجمال.', image: makeScene({ skyTop: '#d9c08a', skyBottom: '#f3e1b2', hill: '#b8864e', accent: '#d7b57a', label: 'صحراء' }) },
-            { title: 'حياة برية', icon: '🦌', caption: 'حيوان بري بين الجبال والأشجار', wisdom: 'احترام الحياة يبدأ بتركها تعيش بطبيعتها.', image: makeScene({ skyTop: '#c8d8be', skyBottom: '#ecf1db', hill: '#496a44', accent: '#719a66', label: 'حياة' }) },
-            { title: 'أزهار برية', icon: '🌼', caption: 'أزهار صفراء تحت سماء زرقاء', wisdom: 'ازهر في مكانك، ولو كنت وحدك.', image: makeScene({ skyTop: '#a3d9f3', skyBottom: '#f9f3cc', hill: '#79a25f', accent: '#f1d35a', label: 'أزهار' }) },
-            { title: 'جبال يكسوها الضباب', icon: '☁️', caption: 'جبال خضراء محاطة بالضباب عند الشروق', wisdom: 'ليس كل ما غاب عن العين قد ضاع.', image: makeScene({ skyTop: '#d8ebf0', skyBottom: '#f6f4ef', hill: '#516a6d', accent: '#a0b9b0', label: 'ضباب' }) },
-            { title: 'بحيرة جبلية', icon: '🛶', caption: 'بحيرة صافية تحيط بها الجبال', wisdom: 'صفاء القلب يعكس جمال العالم.', image: makeScene({ skyTop: '#7ec2d2', skyBottom: '#eaf7ff', hill: '#527b6e', accent: '#9bd0d0', label: 'بحيرة' }) },
-            { title: 'نهر وسط الغابة', icon: '🌿', caption: 'نهر يجري بين الصخور والغابة', wisdom: 'امضِ بهدوء، فلكل طريق مجراه.', image: makeScene({ skyTop: '#88d5d0', skyBottom: '#dff7f2', hill: '#3c7a6c', accent: '#6ba986', label: 'نهر' }) },
-            { title: 'مناظر شتوية', icon: '❄️', caption: 'جبال ووديان مغطاة بالثلوج', wisdom: 'وراء البرد سكون يهيئ للحياة.', image: makeScene({ skyTop: '#cfe8f7', skyBottom: '#eef8ff', hill: '#6987a3', accent: '#cfdbef', label: 'ثلج' }) },
-            { title: 'ألوان الخريف', icon: '🍂', caption: 'أشجار خريفية ملونة تعكسها المياه', wisdom: 'التغيير قد يكون أجمل فصول الحياة.', image: makeScene({ skyTop: '#dca873', skyBottom: '#f8d7a7', hill: '#75654e', accent: '#d3835b', label: 'خريف' }) },
-            { title: 'وادي جبلي', icon: '⛰️', caption: 'وادي أخضر بين تلال جبلية', wisdom: 'بين القمم متسعٌ للطريق والأمل.', image: makeScene({ skyTop: '#adc9c4', skyBottom: '#f0f2d7', hill: '#4d7c64', accent: '#91a879', label: 'وادي' }) },
-            { title: 'نباتات صحراوية', icon: '🌵', caption: 'نباتات صبار بأشواك دقيقة', wisdom: 'الصبر يزهر حتى في أقسى الظروف.', image: makeScene({ skyTop: '#f1d09e', skyBottom: '#f7e7b5', hill: '#b07d4a', accent: '#d3b976', label: 'صبار' }) },
-            { title: 'جبال متدرجة', icon: '🌄', caption: 'طبقات جبلية تتدرج في الأفق', wisdom: 'كل أفق جديد يكشف طريقًا آخر.', image: makeScene({ skyTop: '#d0d9e8', skyBottom: '#f7f6f1', hill: '#5e6c7a', accent: '#a7b1bf', label: 'أفق' }) }
+            { title: 'غروب بين الجبال', icon: '🌄', caption: 'غروب الشمس بين الجبال فوق مرج أخضر', wisdom: 'بعد كل غروب، يولد فجر جديد.', image: makeScene({ skyTop: '#f3b582', skyBottom: '#f7d8a0', hill: '#4a7a64', accent: '#7aa66d', label: 'غروب', sun: true }) },
+            { title: 'غروب على البحيرة', icon: '🌅', caption: 'غروب شاحب فوق مياه هادئة', wisdom: 'في الهدوء نرى ما تخفيه الضوضاء.', image: makeScene({ skyTop: '#9cced9', skyBottom: '#f2d2ad', hill: '#4d7282', accent: '#7bc3c0', label: 'بحيرة', sun: true }) },
+            { title: 'مرج أخضر في المساء', icon: '🌾', caption: 'مرج أخضر وضباب خفيف عند الغروب', wisdom: 'الجمال يزهر حيث يجد من يرعاه.', image: makeScene({ skyTop: '#e8b06d', skyBottom: '#fbe7b9', hill: '#4d8b66', accent: '#87c289', label: 'مرج', sun: true }) },
+            { title: 'ألوان السماء', icon: '🌤️', caption: 'سماء برتقالية فوق الأشجار', wisdom: 'لكل نهاية لونٌ يليق بها.', image: makeScene({ skyTop: '#e68b73', skyBottom: '#f9d7ae', hill: '#547d83', accent: '#eea378', label: 'سماء', sun: true }) },
+            { title: 'غابة خضراء', icon: '🌲', caption: 'أشعة الشمس تتسلل بين أغصان الغابة', wisdom: 'القوة تنمو بصبر، مثل الأشجار.', image: makeScene({ skyTop: '#9fd4d5', skyBottom: '#dbf4c8', hill: '#2c6b57', accent: '#7cbf75', label: 'غابة', sun: true }) },
+            { title: 'قمم جبلية', icon: '🏔️', caption: 'قمم شاهقة تحت سحب بيضاء', wisdom: 'القمم العالية تبدأ بخطوة ثابتة.', image: makeScene({ skyTop: '#d4ebf4', skyBottom: '#f3efea', hill: '#566d7a', accent: '#a4b7ad', label: 'قمم' }) },
+            { title: 'أمواج المحيط', icon: '🌊', caption: 'أمواج زرقاء تتدحرج نحو الشاطئ', wisdom: 'المرونة قوة حين تعصف الأمواج.', image: makeScene({ skyTop: '#7fc4e2', skyBottom: '#dff2fa', hill: '#316a90', accent: '#7bb7d7', label: 'محيط' }) },
+            { title: 'شاطئ هادئ', icon: '🏖️', caption: 'شاطئ رملي مع ماء هادئ في ضوء المساء', wisdom: 'امنح نفسك وقتًا لتستعيد هدوءك.', image: makeScene({ skyTop: '#f5b07d', skyBottom: '#f9dfaf', hill: '#d4b185', accent: '#7eb5c8', label: 'شاطئ', sun: true }) },
+            { title: 'شلال بين الصخور', icon: '💧', caption: 'ماء ينساب بين الصخور والأشجار', wisdom: 'الاستمرار يصنع طريقًا حتى في الصخر.', image: makeScene({ skyTop: '#7ecad1', skyBottom: '#d9f2f4', hill: '#3d5d51', accent: '#7cb7a5', label: 'شلال' }) },
+            { title: 'صخور الصحراء', icon: '🏜️', caption: 'تكوينات صخرية واسعة في صحراء مفتوحة', wisdom: 'في أبسط الأماكن يتجلى أعمق الجمال.', image: makeScene({ skyTop: '#dbc390', skyBottom: '#f0dfb8', hill: '#b98649', accent: '#d9b672', label: 'صحراء', sun: true }) },
+            { title: 'حياة برية', icon: '🦌', caption: 'حيوان بري بين الجبال والأشجار', wisdom: 'احترام الحياة يبدأ بتركها تعيش بطبيعتها.', image: makeScene({ skyTop: '#c7d8bf', skyBottom: '#edf3dc', hill: '#486f47', accent: '#73a667', label: 'حياة' }) },
+            { title: 'أزهار برية', icon: '🌼', caption: 'أزهار صفراء تحت سماء زرقاء', wisdom: 'ازهر في مكانك، ولو كنت وحدك.', image: makeScene({ skyTop: '#9ed5f5', skyBottom: '#f7f0c5', hill: '#79a25f', accent: '#f2d65a', label: 'أزهار' }) },
+            { title: 'جبال يكسوها الضباب', icon: '☁️', caption: 'جبال خضراء محاطة بالضباب عند الشروق', wisdom: 'ليس كل ما غاب عن العين قد ضاع.', image: makeScene({ skyTop: '#d7ebef', skyBottom: '#f5f4ef', hill: '#546a6c', accent: '#a0b8b0', label: 'ضباب' }) },
+            { title: 'بحيرة جبلية', icon: '🛶', caption: 'بحيرة صافية تحيط بها الجبال', wisdom: 'صفاء القلب يعكس جمال العالم.', image: makeScene({ skyTop: '#7ec1d3', skyBottom: '#e8f7ff', hill: '#527c70', accent: '#9bd0d0', label: 'بحيرة' }) },
+            { title: 'نهر وسط الغابة', icon: '🌿', caption: 'نهر يجري بين الصخور والغابة', wisdom: 'امضِ بهدوء، فلكل طريق مجراه.', image: makeScene({ skyTop: '#89d5d1', skyBottom: '#dff7f2', hill: '#3b7c6d', accent: '#6ca984', label: 'نهر' }) },
+            { title: 'مناظر شتوية', icon: '❄️', caption: 'جبال ووديان مغطاة بالثلوج', wisdom: 'وراء البرد سكون يهيئ للحياة.', image: makeScene({ skyTop: '#d2eaf7', skyBottom: '#eef8ff', hill: '#6a87a3', accent: '#d5dff5', label: 'ثلج' }) },
+            { title: 'ألوان الخريف', icon: '🍂', caption: 'أشجار خريفية ملونة تعكسها المياه', wisdom: 'التغيير قد يكون أجمل فصول الحياة.', image: makeScene({ skyTop: '#d9a980', skyBottom: '#f8dba8', hill: '#75654e', accent: '#d7835f', label: 'خريف', sun: true }) },
+            { title: 'وادي جبلي', icon: '⛰️', caption: 'وادي أخضر بين تلال جبلية', wisdom: 'بين القمم متسعٌ للطريق والأمل.', image: makeScene({ skyTop: '#afcad9', skyBottom: '#eff4d7', hill: '#4d7c64', accent: '#93a77c', label: 'وادي' }) },
+            { title: 'نباتات صحراوية', icon: '🌵', caption: 'نباتات صبار بأشواك دقيقة', wisdom: 'الصبر يزهر حتى في أقسى الظروف.', image: makeScene({ skyTop: '#efd29d', skyBottom: '#f9ebbb', hill: '#b57f4a', accent: '#d5b977', label: 'صبار', sun: true }) },
+            { title: 'جبال متدرجة', icon: '🌄', caption: 'طبقات جبلية تتدرج في الأفق', wisdom: 'كل أفق جديد يكشف طريقًا آخر.', image: makeScene({ skyTop: '#cedaf0', skyBottom: '#f7f5f0', hill: '#5d6e7a', accent: '#a8b1c0', label: 'أفق' }) }
         ];
 
         const gallery = document.getElementById('gallery');
