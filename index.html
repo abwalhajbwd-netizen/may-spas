@@ -222,26 +222,26 @@
         };
 
         const galleryItems = [
-            { title: 'غروب بين الجبال', label: 'غروب', wisdom: 'بعد كل غروب، يولد فجر جديد.', image: makeScene({ skyTop: '#f4b183', skyBottom: '#f7dca0', hill: '#4a7a64', accent: '#7aa66d', label: 'غروب' }) },
-            { title: 'غروب على البحيرة', label: 'بحيرة', wisdom: 'في الهدوء نرى ما تخفيه الضوضاء.', image: makeScene({ skyTop: '#99d0da', skyBottom: '#f3d0a8', hill: '#4d7282', accent: '#7dc3bf', label: 'بحيرة' }) },
-            { title: 'غروب في مرج أخضر', label: 'مرج', wisdom: 'الجمال يزهر حيث يجد من يرعاه.', image: makeScene({ skyTop: '#ebad6d', skyBottom: '#fbe3b2', hill: '#4e8b66', accent: '#9ecb71', label: 'مرج' }) },
-            { title: 'ألوان السماء وقت الغروب', label: 'سماء', wisdom: 'لكل نهاية لونٌ يليق بها.', image: makeScene({ skyTop: '#e5896f', skyBottom: '#f9d4a8', hill: '#547d83', accent: '#ebaa79', label: 'سماء' }) },
-            { title: 'غابة خضراء', label: 'غابة', wisdom: 'القوة تنمو بصبر، مثل الأشجار.', image: makeScene({ skyTop: '#9ed4d4', skyBottom: '#dff3d4', hill: '#285f54', accent: '#82bc7f', label: 'غابة' }) },
-            { title: 'قمم جبلية', label: 'قمم', wisdom: 'القمم العالية تبدأ بخطوة ثابتة.', image: makeScene({ skyTop: '#d9ebf5', skyBottom: '#f4efe4', hill: '#566d7a', accent: '#9baea2', label: 'قمم' }) },
-            { title: 'أمواج المحيط', label: 'محيط', wisdom: 'المرونة قوة حين تعصف الأمواج.', image: makeScene({ skyTop: '#8ec6e4', skyBottom: '#dff4ff', hill: '#2f6d94', accent: '#7bb4d8', label: 'محيط' }) },
-            { title: 'شاطئ هادئ', label: 'شاطئ', wisdom: 'امنح نفسك وقتًا لتستعيد هدوءك.', image: makeScene({ skyTop: '#f4b07d', skyBottom: '#f7dfb5', hill: '#d5b08b', accent: '#7bb6c6', label: 'شاطئ' }) },
-            { title: 'شلال بين الصخور', label: 'شلال', wisdom: 'الاستمرار يصنع طريقًا حتى في الصخر.', image: makeScene({ skyTop: '#79c7d2', skyBottom: '#d7f0f3', hill: '#3a5c50', accent: '#7cb7a9', label: 'شلال' }) },
-            { title: 'صخور الصحراء', label: 'صحراء', wisdom: 'في أبسط الأماكن يتجلى أعمق الجمال.', image: makeScene({ skyTop: '#d9c08a', skyBottom: '#f3e1b2', hill: '#b8864e', accent: '#d7b57a', label: 'صحراء' }) },
-            { title: 'حياة برية', label: 'حياة', wisdom: 'احترام الحياة يبدأ بتركها تعيش بطبيعتها.', image: makeScene({ skyTop: '#c8d8be', skyBottom: '#ecf1db', hill: '#496a44', accent: '#719a66', label: 'حياة' }) },
-            { title: 'أزهار برية', label: 'أزهار', wisdom: 'ازهر في مكانك، ولو كنت وحدك.', image: makeScene({ skyTop: '#a3d9f3', skyBottom: '#f9f3cc', hill: '#79a25f', accent: '#f1d35a', label: 'أزهار' }) },
-            { title: 'جبال يكسوها الضباب', label: 'ضباب', wisdom: 'ليس كل ما غاب عن العين قد ضاع.', image: makeScene({ skyTop: '#d8ebf0', skyBottom: '#f6f4ef', hill: '#516a6d', accent: '#a0b9b0', label: 'ضباب' }) },
-            { title: 'بحيرة جبلية', label: 'بحيرة', wisdom: 'صفاء القلب يعكس جمال العالم.', image: makeScene({ skyTop: '#7ec2d2', skyBottom: '#eaf7ff', hill: '#527b6e', accent: '#9bd0d0', label: 'بحيرة' }) },
-            { title: 'نهر وسط الغابة', label: 'نهر', wisdom: 'امضِ بهدوء، فلكل طريق مجراه.', image: makeScene({ skyTop: '#88d5d0', skyBottom: '#dff7f2', hill: '#3c7a6c', accent: '#6ba986', label: 'نهر' }) },
-            { title: 'مناظر شتوية', label: 'ثلج', wisdom: 'وراء البرد سكون يهيئ للحياة.', image: makeScene({ skyTop: '#cfe8f7', skyBottom: '#eef8ff', hill: '#6987a3', accent: '#cfdbef', label: 'ثلج' }) },
-            { title: 'ألوان الخريف', label: 'خريف', wisdom: 'التغيير قد يكون أجمل فصول الحياة.', image: makeScene({ skyTop: '#dca873', skyBottom: '#f8d7a7', hill: '#75654e', accent: '#d3835b', label: 'خريف' }) },
-            { title: 'وادي جبلي', label: 'وادي', wisdom: 'بين القمم متسعٌ للطريق والأمل.', image: makeScene({ skyTop: '#adc9c4', skyBottom: '#f0f2d7', hill: '#4d7c64', accent: '#91a879', label: 'وادي' }) },
-            { title: 'نباتات صحراوية', label: 'صبار', wisdom: 'الصبر يزهر حتى في أقسى الظروف.', image: makeScene({ skyTop: '#f1d09e', skyBottom: '#f7e7b5', hill: '#b07d4a', accent: '#d3b976', label: 'صبار' }) },
-            { title: 'جبال متدرجة', label: 'أفق', wisdom: 'كل أفق جديد يكشف طريقًا آخر.', image: makeScene({ skyTop: '#d0d9e8', skyBottom: '#f7f6f1', hill: '#5e6c7a', accent: '#a7b1bf', label: 'أفق' }) }
+            { title: 'غروب بين الجبال', icon: '🌄', caption: 'غروب الشمس بين الجبال فوق مرج أخضر', wisdom: 'بعد كل غروب، يولد فجر جديد.', image: makeScene({ skyTop: '#f4b183', skyBottom: '#f7dca0', hill: '#4a7a64', accent: '#7aa66d', label: 'غروب' }) },
+            { title: 'غروب على البحيرة', icon: '🌅', caption: 'غروب شاحب فوق مياه هادئة', wisdom: 'في الهدوء نرى ما تخفيه الضوضاء.', image: makeScene({ skyTop: '#99d0da', skyBottom: '#f3d0a8', hill: '#4d7282', accent: '#7dc3bf', label: 'بحيرة' }) },
+            { title: 'مرج أخضر في المساء', icon: '🌾', caption: 'مرج أخضر وضباب خفيف عند الغروب', wisdom: 'الجمال يزهر حيث يجد من يرعاه.', image: makeScene({ skyTop: '#ebad6d', skyBottom: '#fbe3b2', hill: '#4e8b66', accent: '#9ecb71', label: 'مرج' }) },
+            { title: 'ألوان السماء', icon: '🌤️', caption: 'سماء برتقالية فوق الأشجار', wisdom: 'لكل نهاية لونٌ يليق بها.', image: makeScene({ skyTop: '#e5896f', skyBottom: '#f9d4a8', hill: '#547d83', accent: '#ebaa79', label: 'سماء' }) },
+            { title: 'غابة خضراء', icon: '🌲', caption: 'أشعة الشمس تتسلل بين أغصان الغابة', wisdom: 'القوة تنمو بصبر، مثل الأشجار.', image: makeScene({ skyTop: '#9ed4d4', skyBottom: '#dff3d4', hill: '#285f54', accent: '#82bc7f', label: 'غابة' }) },
+            { title: 'قمم جبلية', icon: '🏔️', caption: 'قمم شاهقة تحت سحب بيضاء', wisdom: 'القمم العالية تبدأ بخطوة ثابتة.', image: makeScene({ skyTop: '#d9ebf5', skyBottom: '#f4efe4', hill: '#566d7a', accent: '#9baea2', label: 'قمم' }) },
+            { title: 'أمواج المحيط', icon: '🌊', caption: 'أمواج زرقاء تتدحرج نحو الشاطئ', wisdom: 'المرونة قوة حين تعصف الأمواج.', image: makeScene({ skyTop: '#8ec6e4', skyBottom: '#dff4ff', hill: '#2f6d94', accent: '#7bb4d8', label: 'محيط' }) },
+            { title: 'شاطئ هادئ', icon: '🏖️', caption: 'شاطئ رملي مع ماء هادئ في ضوء المساء', wisdom: 'امنح نفسك وقتًا لتستعيد هدوءك.', image: makeScene({ skyTop: '#f4b07d', skyBottom: '#f7dfb5', hill: '#d5b08b', accent: '#7bb6c6', label: 'شاطئ' }) },
+            { title: 'شلال بين الصخور', icon: '💧', caption: 'ماء ينساب بين الصخور والأشجار', wisdom: 'الاستمرار يصنع طريقًا حتى في الصخر.', image: makeScene({ skyTop: '#79c7d2', skyBottom: '#d7f0f3', hill: '#3a5c50', accent: '#7cb7a9', label: 'شلال' }) },
+            { title: 'صخور الصحراء', icon: '🏜️', caption: 'تكوينات صخرية واسعة في صحراء مفتوحة', wisdom: 'في أبسط الأماكن يتجلى أعمق الجمال.', image: makeScene({ skyTop: '#d9c08a', skyBottom: '#f3e1b2', hill: '#b8864e', accent: '#d7b57a', label: 'صحراء' }) },
+            { title: 'حياة برية', icon: '🦌', caption: 'حيوان بري بين الجبال والأشجار', wisdom: 'احترام الحياة يبدأ بتركها تعيش بطبيعتها.', image: makeScene({ skyTop: '#c8d8be', skyBottom: '#ecf1db', hill: '#496a44', accent: '#719a66', label: 'حياة' }) },
+            { title: 'أزهار برية', icon: '🌼', caption: 'أزهار صفراء تحت سماء زرقاء', wisdom: 'ازهر في مكانك، ولو كنت وحدك.', image: makeScene({ skyTop: '#a3d9f3', skyBottom: '#f9f3cc', hill: '#79a25f', accent: '#f1d35a', label: 'أزهار' }) },
+            { title: 'جبال يكسوها الضباب', icon: '☁️', caption: 'جبال خضراء محاطة بالضباب عند الشروق', wisdom: 'ليس كل ما غاب عن العين قد ضاع.', image: makeScene({ skyTop: '#d8ebf0', skyBottom: '#f6f4ef', hill: '#516a6d', accent: '#a0b9b0', label: 'ضباب' }) },
+            { title: 'بحيرة جبلية', icon: '🛶', caption: 'بحيرة صافية تحيط بها الجبال', wisdom: 'صفاء القلب يعكس جمال العالم.', image: makeScene({ skyTop: '#7ec2d2', skyBottom: '#eaf7ff', hill: '#527b6e', accent: '#9bd0d0', label: 'بحيرة' }) },
+            { title: 'نهر وسط الغابة', icon: '🌿', caption: 'نهر يجري بين الصخور والغابة', wisdom: 'امضِ بهدوء، فلكل طريق مجراه.', image: makeScene({ skyTop: '#88d5d0', skyBottom: '#dff7f2', hill: '#3c7a6c', accent: '#6ba986', label: 'نهر' }) },
+            { title: 'مناظر شتوية', icon: '❄️', caption: 'جبال ووديان مغطاة بالثلوج', wisdom: 'وراء البرد سكون يهيئ للحياة.', image: makeScene({ skyTop: '#cfe8f7', skyBottom: '#eef8ff', hill: '#6987a3', accent: '#cfdbef', label: 'ثلج' }) },
+            { title: 'ألوان الخريف', icon: '🍂', caption: 'أشجار خريفية ملونة تعكسها المياه', wisdom: 'التغيير قد يكون أجمل فصول الحياة.', image: makeScene({ skyTop: '#dca873', skyBottom: '#f8d7a7', hill: '#75654e', accent: '#d3835b', label: 'خريف' }) },
+            { title: 'وادي جبلي', icon: '⛰️', caption: 'وادي أخضر بين تلال جبلية', wisdom: 'بين القمم متسعٌ للطريق والأمل.', image: makeScene({ skyTop: '#adc9c4', skyBottom: '#f0f2d7', hill: '#4d7c64', accent: '#91a879', label: 'وادي' }) },
+            { title: 'نباتات صحراوية', icon: '🌵', caption: 'نباتات صبار بأشواك دقيقة', wisdom: 'الصبر يزهر حتى في أقسى الظروف.', image: makeScene({ skyTop: '#f1d09e', skyBottom: '#f7e7b5', hill: '#b07d4a', accent: '#d3b976', label: 'صبار' }) },
+            { title: 'جبال متدرجة', icon: '🌄', caption: 'طبقات جبلية تتدرج في الأفق', wisdom: 'كل أفق جديد يكشف طريقًا آخر.', image: makeScene({ skyTop: '#d0d9e8', skyBottom: '#f7f6f1', hill: '#5e6c7a', accent: '#a7b1bf', label: 'أفق' }) }
         ];
 
         const gallery = document.getElementById('gallery');
@@ -257,13 +257,13 @@
             const wisdom = document.createElement('span');
 
             img.src = item.image;
-            img.alt = item.title;
+            img.alt = item.caption;
             img.loading = 'lazy';
             img.decoding = 'async';
 
             captionHeader.className = 'caption-header';
             icon.className = 'caption-icon';
-            icon.textContent = '🌄';
+            icon.textContent = item.icon;
             icon.setAttribute('aria-hidden', 'true');
 
             title.textContent = item.title;
