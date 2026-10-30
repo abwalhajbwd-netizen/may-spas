@@ -6,9 +6,7 @@
     <meta name="theme-color" content="#f2f5f1">
     <title>نبذة عن الحكمة</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             min-height: 100vh;
@@ -144,13 +142,8 @@
         }
 
         @media (max-width: 640px) {
-            body {
-                padding: 20px 18px 36px;
-            }
-
-            .content {
-                padding: 20px;
-            }
+            body { padding: 20px 18px 36px; }
+            .content { padding: 20px; }
         }
     </style>
 </head>
@@ -174,165 +167,45 @@
         </article>
         <p class="not-found" id="not-found" hidden>لم نعثر على حكمة لهذه الصورة. يمكنك العودة إلى معرض الصور واختيار صورة أخرى.</p>
     </main>
+
     <script>
         const wisdomEntries = [
-            {
-                image: "تنزيل (12).jpg",
-                alt: "غروب الشمس بين الجبال وفوق مرج أخضر",
-                title: "غروب بين الجبال",
-                wisdom: "بعد كل غروب، يولد فجر جديد.",
-                benefit: "تذكّرنا هذه الحكمة أن النهايات ليست دائمًا خسارة؛ فقد تكون بداية لفرصة وتجربة جديدتين. تمنحنا الأمل والصبر عند مرورنا بأوقات صعبة."
-            },
-            {
-                image: "تنزيل (13).jpg",
-                alt: "غروب الشمس فوق بحيرة هادئة",
-                title: "غروب على البحيرة",
-                wisdom: "في الهدوء نرى ما تخفيه الضوضاء.",
-                benefit: "حين نهدأ ونمنح أنفسنا وقتًا للتأمل، نستطيع فهم مشاعرنا والمواقف من حولنا بصورة أوضح. تساعدنا الحكمة على التمهّل قبل اتخاذ القرار."
-            },
-            {
-                image: "sunset-field.jpg",
-                alt: "غروب الشمس فوق مرج أخضر وضباب خفيف",
-                title: "غروب في مرج أخضر",
-                wisdom: "الجمال يزهر حيث يجد من يرعاه.",
-                benefit: "تذكّرنا بأن الأشياء الجميلة، مثل العلاقات والمهارات والأحلام، تحتاج إلى عناية واهتمام مستمرين كي تنمو وتزدهر."
-            },
-            {
-                image: "sunset-sky.jpg",
-                alt: "سماء برتقالية عند الغروب فوق الأشجار",
-                title: "ألوان السماء وقت الغروب",
-                wisdom: "لكل نهاية لونٌ يليق بها.",
-                benefit: "تدعونا إلى تقبّل تغيّر المراحل؛ فلكل تجربة أثرها ومعناها، ويمكننا أن نجد في الوداع ذكرى جميلة أو درسًا نافعًا."
-            },
-            {
-                image: "nature-forest.jpg",
-                alt: "أشعة الشمس تتسلل بين أشجار الغابة",
-                title: "غابة خضراء",
-                wisdom: "القوة تنمو بصبر، مثل الأشجار.",
-                benefit: "النمو الحقيقي يحتاج وقتًا وثباتًا. تساعدنا الحكمة على تقدير الخطوات الصغيرة وعدم استعجال النتائج."
-            },
-            {
-                image: "nature-mountain.jpg",
-                alt: "قمم جبلية شاهقة تحت غيوم بيضاء",
-                title: "قمم جبلية",
-                wisdom: "القمم العالية تبدأ بخطوة ثابتة.",
-                benefit: "الأهداف الكبيرة تصبح أقرب عندما نقسمها إلى خطوات عملية ونواصل التقدم بثبات، حتى لو كان ببطء."
-            },
-            {
-                image: "nature-ocean.jpg",
-                alt: "أمواج المحيط الزرقاء عن قرب",
-                title: "أمواج المحيط",
-                wisdom: "المرونة قوة حين تعصف الأمواج.",
-                benefit: "المرونة تساعدنا على التكيّف مع التغيّرات من دون التخلي عن قيمنا، وعلى البحث عن حلول حين لا تسير الأمور كما خططنا."
-            },
-            {
-                image: "nature-beach.jpg",
-                alt: "شاطئ رملي ومياه بحر في ضوء الغروب",
-                title: "شاطئ هادئ",
-                wisdom: "امنح نفسك وقتًا لتستعيد هدوءك.",
-                benefit: "الراحة والعناية بالنفس ليستا ترفًا؛ فالتوقف قليلًا يساعد على استعادة الطاقة والتركيز ومواصلة المسؤوليات بتوازن."
-            },
-            {
-                image: "nature-waterfall.jpg",
-                alt: "شلال ينساب بين الصخور والأشجار",
-                title: "شلال بين الصخور",
-                wisdom: "الاستمرار يصنع طريقًا حتى في الصخر.",
-                benefit: "الجهد المتواصل قد يحقق ما يبدو صعبًا في البداية. تذكّرنا الحكمة بالمثابرة مع التحلي بالصبر وتعديل الطريق عند الحاجة."
-            },
-            {
-                image: "nature-desert.jpg",
-                alt: "تكوينات صخرية في صحراء واسعة",
-                title: "صخور الصحراء",
-                wisdom: "في أبسط الأماكن يتجلى أعمق الجمال.",
-                benefit: "تساعدنا على ملاحظة التفاصيل الصغيرة وتقدير ما حولنا، بدل انتظار الظروف المثالية كي نشعر بالامتنان أو السعادة."
-            },
-            {
-                image: "nature-wildlife.jpg",
-                alt: "حيوان بري بين الجبال والأشجار",
-                title: "حياة برية",
-                wisdom: "احترام الحياة يبدأ بتركها تعيش بطبيعتها.",
-                benefit: "تذكّرنا بأهمية الرفق بالكائنات والمحافظة على بيئاتها، وأن مسؤوليتنا تجاه الطبيعة تقوم على الاحترام لا السيطرة."
-            },
-            {
-                image: "nature-flowers.jpg",
-                alt: "أزهار برية صفراء تحت سماء زرقاء",
-                title: "أزهار برية",
-                wisdom: "ازهر في مكانك، ولو كنت وحدك.",
-                benefit: "لا يلزم أن ننتظر تصفيق الآخرين لننمو. ركّز على ما تستطيع تطويره في نفسك، وامنح إنجازاتك الصغيرة قيمتها."
-            },
-            {
-                image: "nature-mist.jpg",
-                alt: "ضباب يحيط بجبال خضراء وقت الشروق",
-                title: "جبال يكسوها الضباب",
-                wisdom: "ليس كل ما غاب عن العين قد ضاع.",
-                benefit: "قد تحجب الظروف الرؤية مؤقتًا، لكن ذلك لا يعني أن الطريق انتهى. تمنحنا الحكمة مساحة للصبر حتى تتضح الخطوة التالية."
-            },
-            {
-                image: "nature-lake.jpg",
-                alt: "بحيرة جبلية صافية تحيط بها الجبال",
-                title: "بحيرة جبلية",
-                wisdom: "صفاء القلب يعكس جمال العالم.",
-                benefit: "حين نخفف من التوتر والأحكام المسبقة، نصبح أقدر على رؤية الجوانب الجميلة في الناس والأماكن والتعامل معها بلطف."
-            },
-            {
-                image: "nature-river.jpg",
-                alt: "نهر صافٍ يجري بين الصخور والغابة",
-                title: "نهر وسط الغابة",
-                wisdom: "امضِ بهدوء، فلكل طريق مجراه.",
-                benefit: "المقارنة بالآخرين قد تشتتنا؛ فلكل شخص ظروفه وإيقاعه. ركّز على مسارك واتخذ الخطوة المناسبة لك."
-            },
-            {
-                image: "nature-snow.jpg",
-                alt: "جبال ووديان تغطيها الثلوج",
-                title: "مناظر شتوية",
-                wisdom: "وراء البرد سكون يهيئ للحياة.",
-                benefit: "بعض فترات الهدوء تبدو بطيئة، لكنها تمنحنا فرصة للراحة والاستعداد. ليس كل توقف تعطّلًا؛ فقد يكون تمهيدًا لبداية."
-            },
-            {
-                image: "nature-autumn.jpg",
-                alt: "أشجار خريفية ملونة تنعكس على سطح الماء",
-                title: "ألوان الخريف",
-                wisdom: "التغيير قد يكون أجمل فصول الحياة.",
-                benefit: "تساعدنا على استقبال التغيير بفضول بدل الخوف، ورؤية ما يمكن أن يفتحه من فرص وتجارب جديدة."
-            },
-            {
-                image: "nature-valley.jpg",
-                alt: "وادي أخضر بين تلال جبلية",
-                title: "وادي جبلي",
-                wisdom: "بين القمم متسعٌ للطريق والأمل.",
-                benefit: "حتى عندما تبدو العقبات عالية، قد توجد طرق ومساحات لم نلاحظها بعد. التشاور والتأني يساعدان على اكتشافها."
-            },
-            {
-                image: "nature-cactus.jpg",
-                alt: "نبات صبار بأشواك دقيقة",
-                title: "نباتات صحراوية",
-                wisdom: "الصبر يزهر حتى في أقسى الظروف.",
-                benefit: "تذكّرنا بأن القدرة على التكيّف والصمود قد تساعدنا على بناء حياة طيبة رغم التحديات، مع الحرص على طلب الدعم عند الحاجة."
-            },
-            {
-                image: "nature-hills.jpg",
-                alt: "طبقات من الجبال تتدرج في الأفق",
-                title: "جبال متدرجة",
-                wisdom: "كل أفق جديد يكشف طريقًا آخر.",
-                benefit: "كلما اكتسبنا خبرة واتسعت رؤيتنا، ظهرت أمامنا خيارات جديدة. التعلم المستمر يساعدنا على مواصلة الاكتشاف والتقدم."
-            }
+            { image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80', alt: 'غروب الشمس بين الجبال وفوق مرج أخضر', title: 'غروب بين الجبال', wisdom: 'بعد كل غروب، يولد فجر جديد.', benefit: 'تذكّرنا هذه الحكمة أن النهايات ليست دائمًا خسارة؛ فقد تكون بداية لفرصة وتجربة جديدة. تمنحنا فرصةً للتأمل في أن كل نهاية قد تُمهّد لبداية أكثر إشراقًا.' },
+            { image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80', alt: 'غروب الشمس فوق بحيرة هادئة', title: 'غروب على البحيرة', wisdom: 'في الهدوء نرى ما تخفيه الضوضاء.', benefit: 'حين نهدأ ونمنح أنفسنا وقتًا للتأمل، نستطيع فهم مشاعرنا والمواقف من حولنا بصورة أوضح. تساعدنا هذه الحكمة على التوقف والبحث عن الوضوح.' },
+            { image: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80', alt: 'غروب الشمس فوق مرج أخضر وضباب خفيف', title: 'غروب في مرج أخضر', wisdom: 'الجمال يزهر حيث يجد من يرعاه.', benefit: 'تذكّرنا بأن الأشياء الجميلة، مثل العلاقات والمهارات والأحلام، تحتاج إلى عناية واهتمام مستمر كي تنمو وتزدهر.' },
+            { image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80', alt: 'سماء برتقالية عند الغروب فوق الأشجار', title: 'ألوان السماء وقت الغروب', wisdom: 'لكل نهاية لونٌ يليق بها.', benefit: 'تدعونا إلى تقبّل تغيّر المراحل؛ فلكل تجربة أثرها ومعناها، ويمكننا أن نجد في الوداع ذكرى جميلة وتعليمة قيمة.' },
+            { image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80', alt: 'أشعة الشمس تتسلل بين أشجار الغابة', title: 'غابة خضراء', wisdom: 'القوة تنمو بصبر، مثل الأشجار.', benefit: 'النمو الحقيقي يحتاج وقتًا وثباتًا. تساعدنا الحكمة على تقدير الخطوات الصغيرة وعدم استعجال النتائج.' },
+            { image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80', alt: 'قمم جبلية شاهقة تحت غيوم بيضاء', title: 'قمم جبلية', wisdom: 'القمم العالية تبدأ بخطوة ثابتة.', benefit: 'الأهداف الكبيرة تصبح أقرب عندما نقسمها إلى خطوات عملية ونواصل التقدم بثبات، حتى لو كان ببطء.' },
+            { image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80', alt: 'أمواج المحيط الزرقاء عن قرب', title: 'أمواج المحيط', wisdom: 'المرونة قوة حين تعصف الأمواج.', benefit: 'المرونة تساعدنا على التكيّف مع التغيّرات من دون التخلي عن قيمنا، وعلى البحث عن حلول عند تعثر المسارات.' },
+            { image: 'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80', alt: 'شاطئ رملي ومياه بحر في ضوء الغروب', title: 'شاطئ هادئ', wisdom: 'امنح نفسك وقتًا لتستعيد هدوءك.', benefit: 'الراحة والعناية بالنفس ليستا ترفًا؛ فالتوقف قليلًا يساعد على استعادة الطاقة والتركيز ومواصلة الطريق بسلام.' },
+            { image: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1200&q=80', alt: 'شلال ينساب بين الصخور والأشجار', title: 'شلال بين الصخور', wisdom: 'الاستمرار يصنع طريقًا حتى في الصخر.', benefit: 'الجهد المتواصل قد يحقق ما يبدو صعبًا في البداية. تذكّرنا الحكمة بالمثابرة مع التحلي بالصبر والمرونة.' },
+            { image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80', alt: 'تكوينات صخرية في صحراء واسعة', title: 'صخور الصحراء', wisdom: 'في أبسط الأماكن يتجلى أعمق الجمال.', benefit: 'تساعدنا على ملاحظة التفاصيل الصغيرة وتقدير ما حولنا، بدل انتظار الظروف المثالية كي نشعر بالفرح.' },
+            { image: 'https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1200&q=80', alt: 'حيوان بري بين الجبال والأشجار', title: 'حياة برية', wisdom: 'احترام الحياة يبدأ بتركها تعيش بطبيعتها.', benefit: 'تذكّرنا بأهمية الرفق بالكائنات والمحافظة على بيئاتها، وأن مسؤوليتنا تجاه الطبيعة تبدأ من الاحترام.' },
+            { image: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=80', alt: 'أزهار برية صفراء تحت سماء زرقاء', title: 'أزهار برية', wisdom: 'ازهر في مكانك، ولو كنت وحدك.', benefit: 'لا يلزم أن ننتظر تصفيق الآخرين لننمو. ركّز على ما تستطيع تطويره في نفسك، وامنح إنجازاتك الصغيرة مساحة للظهور.' },
+            { image: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1200&q=80', alt: 'ضباب يحيط بجبال خضراء وقت الشروق', title: 'جبال يكسوها الضباب', wisdom: 'ليس كل ما غاب عن العين قد ضاع.', benefit: 'قد تحجب الظروف الرؤية مؤقتًا، لكن ذلك لا يعني أن الطريق انتهى. تمنحنا الحكمة مساحة للصبر حتى يزول الضباب.' },
+            { image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80', alt: 'بحيرة جبلية صافية تحيط بها الجبال', title: 'بحيرة جبلية', wisdom: 'صفاء القلب يعكس جمال العالم.', benefit: 'حين نخفف من التوتر والأحكام المسبقة، نصبح أقدر على رؤية الجوانب الجميلة في الناس والأماكن.' },
+            { image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80', alt: 'نهر صاف�� يجري بين الصخور والغابة', title: 'نهر وسط الغابة', wisdom: 'امضِ بهدوء، فلكل طريق مجراه.', benefit: 'المقارنة بالآخرين قد تشتتنا؛ فلكل شخص ظروفه وإيقاعه. ركّز على مسارك واتخذ الخطوة المناسبة لك.' },
+            { image: 'https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1200&q=80', alt: 'جبال ووديان تغطيها الثلوج', title: 'مناظر شتوية', wisdom: 'وراء البرد سكون يهيئ للحياة.', benefit: 'بعض فترات الهدوء تبدو بطيئة، لكنها تمنحنا فرصة للراحة والاستعداد. ليس كل توقف تعطّلًا؛ فقد يكون تحضيرًا لنمو جديد.' },
+            { image: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1200&q=80', alt: 'أشجار خريفية ملونة تنعكس على سطح الماء', title: 'ألوان الخريف', wisdom: 'التغيير قد يكون أجمل فصول الحياة.', benefit: 'تساعدنا على استقبال التغيير بفضول بدل الخوف، ورؤية ما يمكن أن يفتحه من فرص وتجارب جديدة.' },
+            { image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80', alt: 'وادي أخضر بين تلال جبلية', title: 'وادي جبلي', wisdom: 'بين القمم متسعٌ للطريق والأمل.', benefit: 'حتى عندما تبدو العقبات عالية، قد توجد طرق ومساحات لم نلاحظها بعد. التشاور والتأني يساعدان على المضي قدمًا.' },
+            { image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80', alt: 'نبات صبار بأشواك دقيقة', title: 'نباتات صحراوية', wisdom: 'الصبر يزهر حتى في أقسى الظروف.', benefit: 'تذكّرنا بأن القدرة على التكيّف والصمود قد تساعدنا على بناء حياة طيبة رغم التحديات، مع الحرص على التوازن.' },
+            { image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80', alt: 'طبقات من الج montagnes تتدرج في الأفق', title: 'جبال متدرجة', wisdom: 'كل أفق جديد يكشف طريقًا آخر.', benefit: 'كلما اكتسبنا خبرة واتسعت رؤيتنا، ظهرت أمامنا خيارات جديدة. التعلم المستمر يساعدنا على مواصلة التقدم.' }
         ];
 
-        const imageParameter = new URLSearchParams(window.location.search).get("image");
-        const imageIndex = imageParameter !== null && /^\d+$/.test(imageParameter)
-            ? Number(imageParameter)
-            : -1;
+        const imageParameter = new URLSearchParams(window.location.search).get('image');
+        const imageIndex = imageParameter !== null && /^\d+$/.test(imageParameter) ? Number(imageParameter) : -1;
         const entry = wisdomEntries[imageIndex];
 
         if (entry) {
             document.title = `نبذة عن الحكمة: ${entry.title}`;
-            document.getElementById("scene-image").src = entry.image;
-            document.getElementById("scene-image").alt = entry.alt;
-            document.getElementById("scene-title").textContent = entry.title;
-            document.getElementById("scene-wisdom").textContent = `❝ ${entry.wisdom} ❞`;
-            document.getElementById("scene-benefit").textContent = entry.benefit;
-            const previousLink = document.getElementById("previous-entry");
-            const nextLink = document.getElementById("next-entry");
+            document.getElementById('scene-image').src = entry.image;
+            document.getElementById('scene-image').alt = entry.alt;
+            document.getElementById('scene-title').textContent = entry.title;
+            document.getElementById('scene-wisdom').textContent = `❝ ${entry.wisdom} ❞`;
+            document.getElementById('scene-benefit').textContent = entry.benefit;
+
+            const previousLink = document.getElementById('previous-entry');
+            const nextLink = document.getElementById('next-entry');
             if (imageIndex > 0) {
                 previousLink.href = `wisdom.html?image=${imageIndex - 1}`;
                 previousLink.hidden = false;
@@ -341,9 +214,10 @@
                 nextLink.href = `wisdom.html?image=${imageIndex + 1}`;
                 nextLink.hidden = false;
             }
-            document.getElementById("wisdom-card").hidden = false;
+
+            document.getElementById('wisdom-card').hidden = false;
         } else {
-            document.getElementById("not-found").hidden = false;
+            document.getElementById('not-found').hidden = false;
         }
     </script>
 </body>
