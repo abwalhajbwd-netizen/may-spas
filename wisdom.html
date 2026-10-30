@@ -9,13 +9,10 @@
         :root {
             --bg: #f2f5f1;
             --panel: #ffffff;
-            --panel-soft: #f7faf7;
             --ink: #183b3b;
             --muted: #345858;
             --line: #dce7e1;
             --gold: #efb172;
-            --gold-deep: #d78d47;
-            --green: #7fd04c;
         }
 
         * { box-sizing: border-box; }
@@ -25,9 +22,7 @@
             margin: 0;
             padding: 32px 24px 48px;
             color: var(--ink);
-            background:
-                radial-gradient(circle at top, rgba(255,255,255,0.8), rgba(255,255,255,0) 26%),
-                var(--bg);
+            background: var(--bg);
             font-family: Tahoma, Arial, sans-serif;
         }
 
@@ -48,10 +43,9 @@
 
         article {
             overflow: hidden;
-            border: 1px solid rgba(24,59,59,0.08);
             border-radius: 18px;
             background: var(--panel);
-            box-shadow: 0 12px 28px rgba(24, 59, 59, 0.12);
+            box-shadow: 0 12px 28px rgba(24,59,59,0.12);
         }
 
         article img {
@@ -62,15 +56,13 @@
             background: #d9e2dc;
         }
 
-        .content {
-            padding: 26px 24px 24px;
-        }
+        .content { padding: 26px 24px 24px; }
 
         .wisdom-details {
             padding: 20px 22px;
             border: 1px solid var(--line);
             border-radius: 12px;
-            background: var(--panel-soft);
+            background: #f7faf7;
         }
 
         h1 {
@@ -81,7 +73,7 @@
 
         blockquote {
             margin: 0 0 20px;
-            padding: 20px 22px;
+            padding: 18px 22px;
             border-inline-start: 5px solid var(--gold);
             border-radius: 12px;
             color: #fff;
@@ -104,7 +96,7 @@
         }
 
         .wisdom-details h2::before {
-            color: var(--gold-deep);
+            color: #b85d3b;
             content: "✦";
             font-size: 20px;
         }
@@ -136,7 +128,6 @@
             font-size: 16px;
             font-weight: 700;
             text-decoration: none;
-            transition: all 0.2s ease;
         }
 
         .entry-navigation a:hover,
@@ -150,7 +141,7 @@
         .not-found {
             padding: 24px;
             border-radius: 12px;
-            background: var(--panel);
+            background: #fff;
             box-shadow: 0 8px 20px rgba(24,59,59,0.06);
             font-size: 18px;
             line-height: 1.8;
@@ -184,48 +175,27 @@
     </main>
 
     <script>
-        const makeScene = ({ skyTop, skyBottom, hill, accent, label, sun = false }) => {
-            const sunMarkup = sun ? '<circle cx="930" cy="150" r="92" fill="rgba(255,255,255,0.22)"/>' : '';
-            const svg = `
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
-                    <defs>
-                        <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
-                            <stop offset="0%" stop-color="${skyTop}"/>
-                            <stop offset="100%" stop-color="${skyBottom}"/>
-                        </linearGradient>
-                    </defs>
-                    <rect width="1200" height="900" fill="url(#sky)"/>
-                    ${sunMarkup}
-                    <path d="M0,620 C180,520 280,520 420,590 S720,740 1200,610 L1200,900 L0,900 Z" fill="${hill}" opacity="0.92"/>
-                    <path d="M0,700 C200,630 380,640 510,700 S820,800 1200,680 L1200,900 L0,900 Z" fill="${accent}" opacity="0.72"/>
-                    <path d="M0,760 L1200,760 L1200,900 L0,900 Z" fill="#1d3c3f" opacity="0.28"/>
-                    <text x="600" y="520" text-anchor="middle" font-family="Tahoma, Arial, sans-serif" font-size="54" fill="white" font-weight="700" opacity="0.92">${label}</text>
-                </svg>
-            `;
-            return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
-        };
-
         const wisdomEntries = [
-            { icon: '🌄', image: makeScene({ skyTop: '#f3b582', skyBottom: '#f7d8a0', hill: '#4a7a64', accent: '#7aa66d', label: 'غروب', sun: true }), alt: 'غروب الشمس بين الجبال فوق مرج أخضر', title: 'غروب بين الجبال', wisdom: 'بعد كل غروب، يولد فجر جديد.', benefit: 'تذكّرنا هذه الحكمة أن النهايات قد تكون مقدمة لبداية جديدة، وأن ما يبدو كخسارة في بعض اللحظات قد يكون بابًا للفرص والرحمة.' },
-            { icon: '🌅', image: makeScene({ skyTop: '#9cced9', skyBottom: '#f2d2ad', hill: '#4d7282', accent: '#7bc3c0', label: 'بحيرة', sun: true }), alt: 'غروب فوق بحيرة هادئة', title: 'غروب على البحيرة', wisdom: 'في الهدوء نرى ما تخفيه الضوضاء.', benefit: 'تعلّمنا هذه الحكمة أن التوقف يسمح لنا بتمييز الحقيقة والوضوح، وأن الهدوء أحيانًا هو الطريق إلى الفهم الصحيح للقضايا والناس.' },
-            { icon: '🌾', image: makeScene({ skyTop: '#e8b06d', skyBottom: '#fbe7b9', hill: '#4d8b66', accent: '#87c289', label: 'مرج', sun: true }), alt: 'مرج أخضر وضباب خفيف عند الغروب', title: 'مرج أخضر في المساء', wisdom: 'الجمال يزهر حيث يجد من يرعاه.', benefit: 'تذكّرنا بأن النعم والفرص تحتاج إلى عناية، وأن الجمال الحقيقي لا ينمو من تلقاء نفسه، بل يزهر عندما يلتفت الإنسان إليه ويرعاه.' },
-            { icon: '🌤️', image: makeScene({ skyTop: '#e68b73', skyBottom: '#f9d7ae', hill: '#547d83', accent: '#eea378', label: 'سماء', sun: true }), alt: 'سماء برتقالية فوق الأشجار', title: 'ألوان السماء', wisdom: 'لكل نهاية لونٌ يليق بها.', benefit: 'تُرينا الحكمة أن كل مرحلة من الحياة لها طابعها الخاص، وأن التغيير لا يُعدّ نهاية محطمة بل جزءًا من نسيج الحياة المتجدد.' },
-            { icon: '🌲', image: makeScene({ skyTop: '#9fd4d5', skyBottom: '#dbf4c8', hill: '#2c6b57', accent: '#7cbf75', label: 'غابة', sun: true }), alt: 'أشعة الشمس تتسلل بين أغصان الغابة', title: 'غابة خضراء', wisdom: 'القوة تنمو بصبر، مثل الأشجار.', benefit: 'تعلّمنا أن النمو الحقيقي يحتاج وقتًا، ومثابرة، وشجاعةً للتقدم ببطء مع الحفاظ على الاستقرار، حتى يصل النضج.' },
-            { icon: '🏔️', image: makeScene({ skyTop: '#d4ebf4', skyBottom: '#f3efea', hill: '#566d7a', accent: '#a4b7ad', label: 'قمم' }), alt: 'قمم جبلية شاهقة تحت سحب بيضاء', title: 'قمم جبلية', wisdom: 'القمم العالية تبدأ بخطوة ثابتة.', benefit: 'تذكّرنا أن التحديات الكبيرة لا تُقهر دفعة واحدة، بل تُغلب بخطوات متتابعة وصبر، فكل خطوة صغيرة تقتربنا من الهدف.' },
-            { icon: '🌊', image: makeScene({ skyTop: '#7fc4e2', skyBottom: '#dff2fa', hill: '#316a90', accent: '#7bb7d7', label: 'محيط' }), alt: 'أمواج زرقاء تتدحرج نحو الشاطئ', title: 'أمواج المحيط', wisdom: 'المرونة قوة حين تعصف الأمواج.', benefit: 'تعلّمنا أن القوة ليست في عدم السقوط، بل في القدرة على التكيّف والعودة إلى المسار الصحيح بعد كل اضطراب.' },
-            { icon: '🏖️', image: makeScene({ skyTop: '#f5b07d', skyBottom: '#f9dfaf', hill: '#d4b185', accent: '#7eb5c8', label: 'شاطئ', sun: true }), alt: 'شاطئ رملي ومياه هادئة في ضوء المساء', title: 'شاطئ هادئ', wisdom: 'امنح نفسك وقتًا لتستعيد هدوءك.', benefit: 'تذكرنا هذه الحكمة بأن الراحة ليست ترفًا، بل ضرورة لإعادة التوازن، وضبط النفس، واستعادة الطاقة لمواصلة الطريق بسلاسة.' },
-            { icon: '💧', image: makeScene({ skyTop: '#7ecad1', skyBottom: '#d9f2f4', hill: '#3d5d51', accent: '#7cb7a5', label: 'شلال' }), alt: 'ماء ينساب بين الصخور والأشجار', title: 'شلال بين الصخور', wisdom: 'الاستمرار يصنع طريقًا حتى في الصخر.', benefit: 'تُرينا الحكمة أن المثابرة وجودة العزيمة تستطيعان فتح المسارات حتى في الأماكن التي تبدو صعبة أو موحشة.' },
-            { icon: '🏜️', image: makeScene({ skyTop: '#dbc390', skyBottom: '#f0dfb8', hill: '#b98649', accent: '#d9b672', label: 'صحراء', sun: true }), alt: 'تكوينات صخرية واسعة في صحراء مفتوحة', title: 'صخور الصحراء', wisdom: 'في أبسط الأماكن يتجلى أعمق الجمال.', benefit: 'تعلّمنا أن الجمال لا يحتاج إلى تعقيد، وإنما إلى عين متفتحة، لأن التفاصيل الصغيرة في الحياة أحيانًا تحمل أعظم المعاني.' },
-            { icon: '🦌', image: makeScene({ skyTop: '#c7d8bf', skyBottom: '#edf3dc', hill: '#486f47', accent: '#73a667', label: 'حياة' }), alt: 'حيوان بري بين الجبال والأشجار', title: 'حياة برية', wisdom: 'احترام الحياة يبدأ بتركها تعيش بطبيعتها.', benefit: 'تذكّرنا بأهمية الرفق بالحياة والبيئة، وأن العناية بالطبيعة تأتي من الاحترام، لا من السيطرة أو القسوة.' },
-            { icon: '🌼', image: makeScene({ skyTop: '#9ed5f5', skyBottom: '#f7f0c5', hill: '#79a25f', accent: '#f2d65a', label: 'أزهار' }), alt: 'أزهار صفراء تحت سماء زرقاء', title: 'أزهار برية', wisdom: 'ازهر في مكانك، ولو كنت وحدك.', benefit: 'تُعلّمنا أن النمو لا يحتاج إلى إشادة خارجية، بل أن كل إنسان قادر على الازدهار عندما يزرع مهاراته ويتعهد قدراته.' },
-            { icon: '☁️', image: makeScene({ skyTop: '#d7ebef', skyBottom: '#f5f4ef', hill: '#546a6c', accent: '#a0b8b0', label: 'ضباب' }), alt: 'جبال خضراء محاطة بالضباب عند الشروق', title: 'جبال يكسوها الضباب', wisdom: 'ليس كل ما غاب عن العين قد ضاع.', benefit: 'تُذكرنا أن الغيابات والضبابات المؤقتة لا تعني أن الطريق قد انتهى، بل غالبًا تُعني أن الطريق ما زال يتشكل ببطء.' },
-            { icon: '🛶', image: makeScene({ skyTop: '#7ec1d3', skyBottom: '#e8f7ff', hill: '#527c70', accent: '#9bd0d0', label: 'بحيرة' }), alt: 'بحيرة صافية تحيط بها الجبال', title: 'بحيرة جبلية', wisdom: 'صفاء القلب يعكس جمال العالم.', benefit: 'تعلّمنا أن الصفاء الداخلي يساعد على رؤية الجمال في الناس والأماكن، وأن الهدوء النفسي يفتح باب الفهم والتقدير.' },
-            { icon: '🌿', image: makeScene({ skyTop: '#89d5d1', skyBottom: '#dff7f2', hill: '#3b7c6d', accent: '#6ca984', label: 'نهر' }), alt: 'نهر يجري بين الصخور والغابة', title: 'نهر وسط الغابة', wisdom: 'امضِ بهدوء، فلكل طريق مجراه.', benefit: 'تذكّرنا أن كل فرد له سرعته الخاصة، وأن المقارنة بالغير قد تشتت الرحلة، لذا الأفضل أن نلتزم بمسارنا الخاص.' },
-            { icon: '❄️', image: makeScene({ skyTop: '#d2eaf7', skyBottom: '#eef8ff', hill: '#6a87a3', accent: '#d5dff5', label: 'ثلج' }), alt: 'جبال ووديان مغطاة بالثلوج', title: 'مناظر شتوية', wisdom: 'وراء البرد سكون يهيئ للحياة.', benefit: 'تعلّمنا أن فترات الهدوء والراحة ليست فراغًا، بل وقتًا مع��ًّا للنمو واستعادة القوة والقدرة على التجدد.' },
-            { icon: '🍂', image: makeScene({ skyTop: '#d9a980', skyBottom: '#f8dba8', hill: '#75654e', accent: '#d7835f', label: 'خريف', sun: true }), alt: 'أشجار خريفية ملونة تعكسها المياه', title: 'ألوان الخريف', wisdom: 'التغيير قد يكون أجمل فصول الحياة.', benefit: 'تذكّرنا أن التغيرات، رغم أحيانًا صعوبتها، قد تحمل فرصًا جديدة وروايات جميلة لا نُدركها إلا بعد مرورها.' },
-            { icon: '⛰️', image: makeScene({ skyTop: '#afcad9', skyBottom: '#eff4d7', hill: '#4d7c64', accent: '#93a77c', label: 'وادي' }), alt: 'وادي أخضر بين تلال جبلية', title: 'وادي جبلي', wisdom: 'بين القمم متسعٌ للطريق والأمل.', benefit: 'تُرينا أنه حتى في أحلك الظروف أو المرتفعات العالية، توجد طرق جديدة وقمم جديدة تُفْتَح مع الصبر والمرونة.' },
-            { icon: '🌵', image: makeScene({ skyTop: '#efd29d', skyBottom: '#f9ebbb', hill: '#b57f4a', accent: '#d5b977', label: 'صبار', sun: true }), alt: 'نباتات صبار بأشواك دقيقة', title: 'نباتات صحراوية', wisdom: 'الصبر يزهر حتى في أقسى الظروف.', benefit: 'تذكّرنا أن القوة الحقيقية ليست في عدم وجود التحديات، بل في القدرة على التكيف والبقاء والازدهار رغم القسوة.' },
-            { icon: '🌄', image: makeScene({ skyTop: '#cedaf0', skyBottom: '#f7f5f0', hill: '#5d6e7a', accent: '#a8b1c0', label: 'أفق' }), alt: 'طبقات جبلية تتدرج في الأفق', title: 'جبال متدرجة', wisdom: 'كل أفق جديد يكشف طريقًا آخر.', benefit: 'تعلّمنا أن الخبرة والرؤية الجديدة تفتح أمامنا أبوابًا متجددة، وكل خطوة تعلم تضعنا على أفق أكثر وضوحًا.' }
+            { icon: '🌄', image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80', alt: 'غروب الشمس بين الجبال فوق مرج أخضر', title: 'غروب بين الجبال', wisdom: 'بعد كل غروب، يولد فجر جديد.', benefit: 'تذكّرنا هذه الحكمة أن النهايات قد تكون مقدمة لبداية جديدة، وأن ما يبدو كخسارة في بعض اللحظات قد يكون بابًا للفرص والرحمة.' },
+            { icon: '🌅', image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80', alt: 'غروب فوق بحيرة هادئة', title: 'غروب على البحيرة', wisdom: 'في الهدوء نرى ما تخفيه الضوضاء.', benefit: 'تعلّمنا هذه الحكمة أن التوقف يسمح لنا بتمييز الحقيقة والوضوح، وأن الهدوء أحيانًا هو الطريق إلى الفهم الصحيح للقضايا والناس.' },
+            { icon: '🌾', image: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80', alt: 'مرج أخضر وضباب خفيف عند الغروب', title: 'مرج أخضر في المساء', wisdom: 'الجمال يزهر حيث يجد من يرعاه.', benefit: 'تذكّرنا بأن النعم والفرص تحتاج إلى عناية، وأن الجمال الحقيقي لا ينمو من تلقاء نفسه، بل يزهر عندما يلتفت الإنسان إليه ويرعاه.' },
+            { icon: '🌤️', image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80', alt: 'سماء برتقالية فوق الأشجار', title: 'ألوان السماء', wisdom: 'لكل نهاية لونٌ يليق بها.', benefit: 'تُرينا الحكمة أن كل مرحلة من الحياة لها طابعها الخاص، وأن التغيير لا يُعدّ نهاية محطمة بل جزءًا من نسيج الحياة المتجدد.' },
+            { icon: '🌲', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80', alt: 'أشعة الشمس تتسلل بين أغصان الغابة', title: 'غابة خضراء', wisdom: 'القوة تنمو بصبر، مثل الأشجار.', benefit: 'تعلّمنا أن النمو الحقيقي يحتاج وقتًا، ومثابرة، وشجاعةً للتقدم ببطء مع الحفاظ على الاستقرار، حتى يصل النضج.' },
+            { icon: '🏔️', image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80', alt: 'قمم جبلية شاهقة تحت سحب بيضاء', title: 'قمم جبلية', wisdom: 'القمم العالية تبدأ بخطوة ثابتة.', benefit: 'تذكّرنا أن التحديات الكبيرة لا تُقهر دفعة واحدة، بل تُغلب بخطوات متتابعة وصبر، فكل خطوة صغيرة تقتربنا من الهدف.' },
+            { icon: '🌊', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80', alt: 'أمواج زرقاء تتدحرج نحو الشاطئ', title: 'أمواج المحيط', wisdom: 'المرونة قوة حين تعصف الأمواج.', benefit: 'تعلّمنا أن القوة ليست في عدم السقوط، بل في القدرة على التكيّف والعودة إلى المسار الصحيح بعد كل اضطراب.' },
+            { icon: '🏖️', image: 'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80', alt: 'شاطئ رملي ومياه هادئة في ضوء المساء', title: 'شاطئ هادئ', wisdom: 'امنح نفسك وقتًا لتستعيد هدوءك.', benefit: 'تذكرنا هذه الحكمة بأن الراحة ليست ترفًا، بل ضرورة لإعادة التوازن، وضبط النفس، واستعادة الطاقة لمواصلة الطريق بسلاسة.' },
+            { icon: '💧', image: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1200&q=80', alt: 'ماء ينساب بين الصخور والأشجار', title: 'شلال بين الصخور', wisdom: 'الاستمرار يصنع طريقًا حتى في الصخر.', benefit: 'تُرينا الحكمة أن المثابرة وجودة العزيمة تستطيعان فتح المسارات حتى في الأماكن التي تبدو صعبة أو موحشة.' },
+            { icon: '🏜️', image: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1200&q=80', alt: 'تكوينات صخرية واسعة في صحراء مفتوحة', title: 'صخور الصحراء', wisdom: 'في أبسط الأماكن يتجلى أعمق الجمال.', benefit: 'تعلّمنا أن الجمال لا يحتاج إلى تعقيد، وإنما إلى عين متفتحة، لأن التفاصيل الصغيرة في الحياة أحيانًا تحمل أعظم المعاني.' },
+            { icon: '🦌', image: 'https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1200&q=80', alt: 'حيوان بري بين الجبال والأشجار', title: 'حياة برية', wisdom: 'احترام الحياة يبدأ بتركها تعيش بطبيعتها.', benefit: 'تذكّرنا بأهمية الرفق بالحياة والبيئة، وأن العناية بالطبيعة تأتي من الاحترام، لا من السيطرة أو القسوة.' },
+            { icon: '🌼', image: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=80', alt: 'أزهار صفراء تحت سماء زرقاء', title: 'أزهار برية', wisdom: 'ازهر في مكانك، ولو كنت وحدك.', benefit: 'تُعلّمنا أن النمو لا يحتاج إلى إشادة خارجية، بل أن كل إنسان قادر على الازدهار عندما يزرع مهاراته ويتعهد قدراته.' },
+            { icon: '☁️', image: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1200&q=80', alt: 'جبال خضراء محاطة بالضباب عند الشروق', title: 'جبال يكسوها الضباب', wisdom: 'ليس كل ما غاب عن العين قد ضاع.', benefit: 'تُذكرنا أن الغيابات والضبابات المؤقتة لا تعني أن الطريق قد انتهى، بل غالبًا تُعني أن الطريق ما ��ال يتشكل ببطء.' },
+            { icon: '🛶', image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80', alt: 'بحيرة صافية تحيط بها الجبال', title: 'بحيرة جبلية', wisdom: 'صفاء القلب يعكس جمال العالم.', benefit: 'تعلّمنا أن الصفاء الداخلي يساعد على رؤية الجمال في الناس والأماكن، وأن الهدوء النفسي يفتح باب الفهم والتقدير.' },
+            { icon: '🌿', image: 'https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1200&q=80', alt: 'نهر يجري بين الصخور والغابة', title: 'نهر وسط الغابة', wisdom: 'امضِ بهدوء، فلكل طريق مجراه.', benefit: 'تذكّرنا أن كل فرد له سرعته الخاصة، وأن المقارنة بالغير قد تشتت الرحلة، لذا الأفضل أن نلتزم بمسارنا الخاص.' },
+            { icon: '❄️', image: 'https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80', alt: 'جبال ووديان مغطاة بالثلوج', title: 'مناظر شتوية', wisdom: 'وراء ا��برد سكون يهيئ للحياة.', benefit: 'تعلّمنا أن فترات الهدوء والراحة ليست فراغًا، بل وقتًا معدًّا للنمو واستعادة القوة والقدرة على التجدد.' },
+            { icon: '🍂', image: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1200&q=80', alt: 'أشجار خريفية ملونة تعكسها المياه', title: 'ألوان الخريف', wisdom: 'التغيير قد يكون أجمل فصول الحياة.', benefit: 'تذكّرنا أن التغيرات، رغم أحيانًا صعوبتها، قد تحمل فرصًا جديدة وروايات جميلة لا نُدركها إلا بعد مرورها.' },
+            { icon: '⛰️', image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80', alt: 'وادي أخضر بين تلال جبلية', title: 'وادي جبلي', wisdom: 'بين القمم متسعٌ للطريق والأمل.', benefit: 'تُرينا أنه حتى في أحلك الظروف أو المرتفعات العالية، توجد طرق جديدة وقمم جديدة تُفْتَح مع الصبر والمرونة.' },
+            { icon: '🌵', image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80', alt: 'نباتات صبار بأشواك دقيقة', title: 'نباتات صحراوية', wisdom: 'الصبر يزهر حتى في أقسى الظروف.', benefit: 'تذكّرنا أن القوة الحقيقية ليست في عدم وجود التحديات، بل في القدرة على التكيف والبقاء والازدهار رغم القسوة.' },
+            { icon: '🌄', image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80', alt: 'طبقات جبلية تتدرج في الأفق', title: 'جبال متدرجة', wisdom: 'كل أفق جديد يكشف طريقًا آخر.', benefit: 'تعلّمنا أن الخبرة والرؤية الجديدة تفتح أمامنا أبوابًا متجددة، وكل خطوة تعلم تضعنا على أفق أكثر وضوحًا.' }
         ];
 
         const imageParameter = new URLSearchParams(window.location.search).get('image');
